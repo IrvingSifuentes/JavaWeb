@@ -14,7 +14,10 @@
 
 	<div class="container">
 	
-	    <div class="form-group">
+	<form method="POST"  action="/WebProject/RegisterServlet">
+	
+	
+	<div class="form-group">
 		  <label for="name">Name:</label>
 		  <input type="text" name="name" class="form-control" id="name">		  		   
 		</div>
@@ -29,11 +32,7 @@
 		  <input type="text" name="email" class="form-control" id="email">		  		   
 		</div>
 		
-		    <div class="form-group">
-		  <label for="name">Name:</label>
-		  <input type="text" name="email" class="form-control" id="name">		  		   
-		</div>
-		
+				
 		    <div class="form-group">
 		  <label for="age">Age:</label>
 		  <input type="text" name="age" class="form-control" id="age">		  		   
@@ -41,24 +40,29 @@
 		
 		    <div class="form-group">
 		  <label for="usr">Address:</label>
-		  <input type="text" name="Address" class="form-control" id="address">		  		   
+		  <input type="text" name="address" class="form-control" id="address">		  		   
 		    </div>
 		    
 		     <div class="form-group">
 		  <label for="password">Password:</label>
-		  <input type="text" name="Address" class="form-control" id="password">		  		   
+		  <input type="password" name="password" class="form-control" id="password">		  		   
 		    </div>
 		    
 		    
 		     <div class="form-group">
 		  <label for="confirm-password">Confirm-Password:</label>
-		  <input type="text" name="confirm-password" class="form-control" id="confirm-password">		  		   
+		  <input type="password" name="confirm-password" class="form-control" id="confirm-password">		  		   
 		    </div>
 		
 		
-		<button class="btn btn-outline-primary">Register</button>
+		<button type="submit" class="btn btn-outline-primary">Register</button>
 		<a class="btn btn-outline-danger"  href="../index.jsp" role="button">Cancel</a>
-		
+	
+	
+	
+	</form>
+	
+	    		
 	</div>
 	</article>
 

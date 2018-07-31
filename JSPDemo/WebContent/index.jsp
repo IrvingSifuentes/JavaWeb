@@ -12,8 +12,6 @@
 
 <%
 
-System.out.println("Hola irving");
-
 %>
 
 <% for (int i = 0 ; i < 10 ; i++){ %>

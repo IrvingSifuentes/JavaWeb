@@ -9,7 +9,7 @@
 		<property name="hibernate.connection.url">jdbc:mysql://35.226.45.38:3306/login?useSSL=false</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.default_schema">login</property>
-		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL55Dialect</property>
 
 		<!-- JDBC connection pool (use C3P0) -->
 		<property name="hibernate.c3p0.min_size">5</property>
@@ -26,7 +26,7 @@
 		<!-- Echo all executed SQL to stdout -->
 		<property name="show_sql">true</property>
 
-		<property name="hbm2ddl.auto">create</property>
+		<property name="hbm2ddl.auto">update</property>
 		
 		<property name="hibernate.id.new_generator_mappings">false</property>
 

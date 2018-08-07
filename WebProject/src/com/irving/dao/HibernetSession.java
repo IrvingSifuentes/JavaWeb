@@ -13,8 +13,7 @@ public class HibernetSession {
 	private static Session session;
 	
 	static  {
-		SESSION_FACTORY = new Configuration().configure().buildSessionFactory();
-		
+		SESSION_FACTORY = new Configuration().configure().buildSessionFactory();		
 	}
 	
 	public static void saveObject(Object object){

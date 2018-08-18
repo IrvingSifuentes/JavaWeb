@@ -14,6 +14,7 @@
 
 	<div class="container">
 		<div class="jumbotron">
+		<form method="POST"  action="/WebProject/LoginServlet">
 		
 		<div class="form-group">
 		  <label for="usr">Username:</label>
@@ -22,13 +23,16 @@
 		
 		<div class="form-group">
 		  <label for="pwd">Password:</label>
-		  <input type="text" name="password" class="form-control" id="pwd">
+		  <input type="password" name="password" class="form-control" id="pwd">
 		</div>
 		
 		<button class="btn btn-lg btn-outline-primary btn-block">Sign in</button>
 		<a class="btn btn-lg  btn-outline-danger btn-block" href="pages/register.jsp">Register</a>
 		
 		
+		</form>
+		
+				
 		
 		</div>
 	</div>

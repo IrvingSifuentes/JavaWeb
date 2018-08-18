@@ -26,6 +26,7 @@ public class HibernetSession {
 	}
 	
 	public static <T> Object getObjectByPrimaryKey(Class<T> objectClass , Serializable pk){
+		session = SESSION_FACTORY.openSession();
 		session.beginTransaction();
 		Object obj = session.get(objectClass, pk);
 		session.close();

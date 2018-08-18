@@ -8,7 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.irving.dao.PersonDAO;
+import com.irving.daoimpl.PersonDAOImpl;
 import com.irving.model.Person;
+
+
 
 /**
  * Servlet implementation class RegisterServlet
@@ -35,24 +39,33 @@ public class RegisterServlet extends HttpServlet {
 		int age =Integer.parseInt(request.getParameter("age")) ;
 		String address = request.getParameter("address");
 		String password = request.getParameter("password");
+		String city = request.getParameter("city");
+		String state = request.getParameter("state");
 		String confirmpassword = request.getParameter("confirm-password");
+		System.out.println(city + " " + state);
 		
 	
 		if (password.equals(confirmpassword)){
+	    PersonDAO persondao = new PersonDAOImpl();
 		Person person = new Person();
 		person.setName(name);
 		person.setLasName(lastname);
 		person.setEmail(email);
 		person.setAge(age);
 		person.setAddress(address);
-        person.setPassword(password);
+		person.setCity(city);
+		person.setState(state);
+        person.setPassword(password);  
+        
+        persondao.insert(person);
+        
 		
         
         System.out.println(person);
 		}else{
 			System.out.println("las contraseñas no son iguales");
 		}
-		response.sendRedirect("/WebProject/index.jsp");
+		response.sendRedirect("/WebProjectO/index.jsp");
 	}
 
 	/**

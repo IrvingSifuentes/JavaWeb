@@ -12,7 +12,7 @@ import com.irving.model.State;
 
 public class StateDAOImpl implements StateDAO{
 	
-	private static final String GET_ALL_STATES = "FROM state " ;
+	private static final String GET_ALL_STATES = "FROM State " ;
 
 	@Override
 	public List<State> getAllStates() {

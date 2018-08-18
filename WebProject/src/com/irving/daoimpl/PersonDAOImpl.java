@@ -18,6 +18,7 @@ public class PersonDAOImpl implements PersonDAO {
 	
 	private static final String GET_ALL_PERSON = "FROM Person";//HQL(hibernet Query Language)
 	private static final String FIND_BY_EMAIL = "FROM Person Where Email = :email " ;	
+	
 
 	@Override
 	public void insert(Person person) {
@@ -52,10 +53,9 @@ public class PersonDAOImpl implements PersonDAO {
 		Session session = HibernetSession.getSession();
 		session.beginTransaction();
 		TypedQuery<Person> query = session.createQuery(FIND_BY_EMAIL);
-		query.setParameter("email", email);
-		session.close();
+		query.setParameter("email", email);		
 		Person person = (Person)query.getResultList().get(0);
-		
+		session.close();
 		return person;
 	}
 

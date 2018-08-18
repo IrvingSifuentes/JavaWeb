@@ -22,7 +22,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name ="person")
+@Table(name ="PERSON")
 
 public class Person {
 
@@ -109,11 +109,12 @@ public class Person {
 	}
 	@Override
 	public String toString() {
-		return "Person [name=" + name + ", lasName=" + lasName + ", email="
-				+ email + ", age=" + age + ", address=" + address
-				+ ", password=" + password + "]";
+		return "Person [id=" + id + ", name=" + name + ", lasName=" + lasName
+				+ ", email=" + email + ", age=" + age + ", address=" + address
+				+ ", state=" + state + ", city=" + city + ", password="
+				+ password + "]";
 	}
-	
+
 	
 	
 	

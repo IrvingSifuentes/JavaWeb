@@ -31,7 +31,9 @@
 		<property name="hibernate.id.new_generator_mappings">false</property>
 
 		
-		<mapping class="com.irving.model.Person" /> 
+		<mapping class="com.irving.model.Person" />
+		<mapping class="com.irving.model.City" />
+		<mapping class="com.irving.model.State" /> 
 		
 	</session-factory>
 </hibernate-configuration>

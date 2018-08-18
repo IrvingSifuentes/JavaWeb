@@ -13,16 +13,16 @@ import com.irving.daoimpl.PersonDAOImpl;
 import com.irving.model.Person;
 
 /**
- * Servlet implementation class RegisterServlet
+ * Servlet implementation class LoginServlet
  */
-@WebServlet("/RegisterServlet")
-public class RegisterServlet extends HttpServlet {
+@WebServlet("/LoginServlet")
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegisterServlet() {
+    public LoginServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,45 +31,36 @@ public class RegisterServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		String name = request.getParameter("name");
-		String lastname = request.getParameter("lastname");
+		
+		response.setContentType("text/html");
+		
 		String email = request.getParameter("email");
-		int age =Integer.parseInt(request.getParameter("age")) ;
-		String address = request.getParameter("address");
 		String password = request.getParameter("password");
-		String city = request.getParameter("city");
-		String state = request.getParameter("state");
-		String confirmpassword = request.getParameter("confirm-password");
 		
-	
-		if (password.equals(confirmpassword)){
-		Person person = new Person();
-		person.setName(name);
-		person.setLasName(lastname);
-		person.setEmail(email);
-		person.setAge(age);
-		person.setAddress(address);
-		person.setCity(city);
-		person.setState(state);
-        person.setPassword(password);
+		PersonDAO persondao = new PersonDAOImpl();
 		
-        PersonDAO persondao = new PersonDAOImpl();
-        persondao.insert(person);
-
-		
-        System.out.println(person);
-		}else{
-			System.out.println("las contraseñas no son iguales");
+		try {
+			Person person = persondao.findByEmail(email);
+			if(password.equals(person.getPassword())){
+	           response.sendRedirect("/WebProject/pages/Home.jsp");		
+				
+				
+			}else {
+				System.out.println("Password invalid");
+			}
+			
+		} 
+		catch (IndexOutOfBoundsException e) {
+		   System.out.println("User Doesnt exist");
+			
 		}
-		response.sendRedirect("/WebProject/index.jsp");
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

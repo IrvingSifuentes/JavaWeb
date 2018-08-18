@@ -14,7 +14,7 @@
 
 	<div class="container">
 	
-	<form method="POST"  action="/WebProject/RegisterServlet">
+	<form method="POST"  action="/WebProjectO/RegisterServlet">
 	
 	
 	<div class="form-group">
@@ -30,18 +30,30 @@
 		    <div class="form-group">
 		  <label for="email">Email:</label>
 		  <input type="text" name="email" class="form-control" id="email">		  		   
-		</div>
+		    </div>
 		
 				
 		    <div class="form-group">
 		  <label for="age">Age:</label>
 		  <input type="text" name="age" class="form-control" id="age">		  		   
-		</div>
+		    </div>
 		
-		    <div class="form-group">
+		      <div class="form-group">
 		  <label for="usr">Address:</label>
 		  <input type="text" name="address" class="form-control" id="address">		  		   
-		    </div>
+		     </div>
+		    
+		      <div class="form-group">
+		  <label for="state">State:</label>
+		  <input type="text" name="state" class="form-control" id="state">		  		   
+		      </div>
+		    
+		    
+		      <div class="form-group">
+		  <label for="city">City:</label>
+		  <input type="text" name="city" class="form-control" id="city">		  		   
+		      </div>
+		    
 		    
 		     <div class="form-group">
 		  <label for="password">Password:</label>
@@ -49,7 +61,7 @@
 		    </div>
 		    
 		    
-		     <div class="form-group">
+		    <div class="form-group">
 		  <label for="confirm-password">Confirm-Password:</label>
 		  <input type="password" name="confirm-password" class="form-control" id="confirm-password">		  		   
 		    </div>

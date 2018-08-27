@@ -48,7 +48,7 @@
 		    
 		    
 		    
-		      <div class="form-group">
+		  <div class="form-group">
 		  <label for="state">State:</label>
 		  <select id="state-select" name="state" class="form-control"> 
 		  <% for (State state: new Dropdowns().getStateDrop()) { %>		  

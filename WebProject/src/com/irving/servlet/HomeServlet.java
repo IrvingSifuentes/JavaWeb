@@ -1,6 +1,9 @@
 package com.irving.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,8 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import util.Dropdowns;
+
+import com.google.gson.Gson;
 import com.irving.dao.PersonDAO;
 import com.irving.daoimpl.PersonDAOImpl;
+import com.irving.model.City;
 import com.irving.model.Person;
 
 /**
@@ -37,9 +44,39 @@ public class HomeServlet extends HttpServlet {
 		if(button.equals("delete")){
 			DeleteButton(personId);
 			
-		}else{
+		}else if (button.equals("updatemodal")){
+			System.out.println("se ejcuta updatemodal");
+			UpdateModel(personId,request,response);
+		}
+			
+			else{
 			updatebutton (personId,request,response);
 		}
+	}
+	
+	public void UpdateModel (int person_id , HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
+		response.setContentType("application/json");
+        PersonDAO persondao = new PersonDAOImpl ();	
+        
+		Person person = persondao.findById(person_id);
+		String personlistJson = new Gson().toJson(person);
+		PrintWriter out = response.getWriter();
+		out.println(personlistJson);
+		//System.out.println(person);
+		
+	/*
+		person =(persondao.findById(person_id));
+		
+		Dropdowns drops = new Dropdowns();
+		//List<Person> person = drops.getPersonList(Integer.parseInt(person_id));
+//		List<Person> person = drops.getCityDrop(Integer.parseInt(person_id));
+		//System.out.println(stateId);
+		String citiesJson = new Gson().toJson(person);
+		PrintWriter out = response.getWriter();
+		out.println(citiesJson);
+		
+		*/
+		
 	}
 
 	public void DeleteButton(int personid){

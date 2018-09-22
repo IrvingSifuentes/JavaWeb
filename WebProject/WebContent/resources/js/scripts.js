@@ -15,24 +15,6 @@ $(document).ready(function(){
 		    });
 		 
 	
-	
-	/*
-	$('modal-update').dialog(
-			
-		/*autoOpen: false,
-			show:{
-				effect:"fade",
-			    duaration:200
-			},
-			hide:{
-				effect:"fade",
-				duration:200
-			}
-		
-			);
-	*/
-	
-	
 	$('#state-select').change(function(){
 	
 		var state = $(this).val();
@@ -41,39 +23,27 @@ $(document).ready(function(){
 		
 	});
 	
-	
-	
-	
-	
 });
 
 function ajaxDropdown(stateId){
-	
-	
-	
-	
 	$.get('/WebProject/GetCitiesServlet',{
-		stateId: stateId
-		
+	stateId: stateId		
 	},function(response){
 		
 		console.log(response);
 		document.getElementById("city-select").options.length =0;
 		$.each(response, function(key,value){
-			
-		  
+					  
 			$("#city-select").append($("<option/>",{
-		    	 value: key,
+		    	 value: value.name,
 		    	 text: value.name
 		    	 
 		     }));	
+		
 		  
 		});
 		
 	} );
-	
-	
-	
 	
 }
 
@@ -99,7 +69,7 @@ function myFunctiondelete(person_id) {
 	  var age =$("#age").val();
 	  var address =$("#address").val();
 	  var state =$("#state-select").val();
-	  var city =$("#city").val();
+	  var city =$("#city-select").val();
 	  var pasword =$("#password").val();
 
 		 $.post('/WebProject/HomeServlet',{
@@ -126,9 +96,28 @@ function myFunctiondelete(person_id) {
 	
 	function myFunctionupdate(person_id){
 		$('#modal-update').dialog("open")
-		$("#id-name").val(person_id);
+		$("#id-name").val(person_id);		
+		 $.post('/WebProject/HomeServlet',{
+			 btn: "updatemodal" ,
+			 Id :person_id 
+		 },function(response){
+			 
+				$.each(response, function(key,value){
+					$("#name").val(value.name);
+				});
+				$("#name").val(response.name);
+				$("#lastname").val(response.lasName);
+				$("#email").val(response.email);
+				$("#age").val(response.age);
+				$("#address").val(response.address);			
+			//	console.log( response)
+				
+			 //location.reload();
+		 });	
+		
+		
 		 //document.getElementById("id-name").innerHTML = person_id;
-		 console.log(person_id);
+	//	 console.log(person_id);
 	
 	};
 	

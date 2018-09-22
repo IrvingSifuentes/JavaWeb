@@ -59,7 +59,7 @@
 <div id="modal-update" title="Update User">
 
      <div class="form-group">
-		  <label for="id-name">Name:</label>
+		  <label for="id-name">ID:</label>
 		  <input type="text" name="id-name" class="form-control" id="id-name" disable=true>		  		   
 		</div>
 
